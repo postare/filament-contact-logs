@@ -17,13 +17,14 @@ return [
      * to specify them, it is for obtaining a more user-friendly table.
      */
     'mappings' => [
-        'App\Models\Miogest\Property' => [
-            'type' => 'Immobile',
-            'pluralType' => 'Immobili',
-            'label' => 'ID: {id}',
-            'urlPrefix' => 'property',
-            'titleField' => 'titolo',
-            'slugField' => 'slug',
-        ],
+        //        EXAMPLE:
+        //        'App\Models\Property' => [
+        //            'type' => 'Property',
+        //            'pluralType' => 'Properties',
+        //            'label' => 'ID: {id}',
+        //            'titleField' => 'name',
+        //            'route' => 'property',
+        //            'record_identifier' => 'slug',
+        //        ],
     ],
 ];

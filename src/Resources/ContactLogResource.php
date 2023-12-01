@@ -63,11 +63,11 @@ class ContactLogResource extends Resource
                 })
                 ->url(function ($record) {
                     // Ottieni la configurazione con un valore di default
-                    $urlPrefix = config("contact-logs.mappings.{$record->contactable_type}.urlPrefix");
-                    $slugField = config("contact-logs.mappings.{$record->contactable_type}.slugField");
+                    $route = config("contact-logs.mappings.{$record->contactable_type}.route");
+                    $record_identifier = config("contact-logs.mappings.{$record->contactable_type}.record_identifier");
 
-                    if ($urlPrefix && $slugField && $record->contactable) {
-                        return route($urlPrefix, $record->contactable->{$slugField});
+                    if ($route && $record_identifier && $record->contactable) {
+                        return route($route, $record->contactable->{$record_identifier});
                     }
 
                     return false;
