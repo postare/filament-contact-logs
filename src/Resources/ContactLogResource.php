@@ -59,7 +59,7 @@ class ContactLogResource extends Resource
                     // Usa config con un valore di default
                     $titleField = config("contact-logs.mappings.{$record->contactable_type}.titleField");
 
-                    return $titleField ? str($record->contactable->{$titleField})->limit(50) : false;
+                    return $titleField ? str($record->contactable?->{$titleField})->limit(50) : false;
                 })
                 ->url(function ($record) {
                     // Ottieni la configurazione con un valore di default
@@ -67,7 +67,7 @@ class ContactLogResource extends Resource
                     $record_identifier = config("contact-logs.mappings.{$record->contactable_type}.record_identifier");
 
                     if ($route && $record_identifier && $record->contactable) {
-                        return route($route, $record->contactable->{$record_identifier});
+                        return route($route, $record->contactable?->{$record_identifier});
                     }
 
                     return false;
